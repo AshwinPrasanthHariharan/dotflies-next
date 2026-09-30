@@ -1,0 +1,175 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+async = true
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+enable_cursor_positioning = true
+
+# ==============================================================================
+# LEFT PROMPT
+# ==============================================================================
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  # ---------------------------------------------------------------------------
+  # PATH
+  # Always enabled
+  # ---------------------------------------------------------------------------
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'blue'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+
+  # ---------------------------------------------------------------------------
+  # GIT
+  # Toggle: ZGIT=1 / 0
+  # ---------------------------------------------------------------------------
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    background = 'transparent'
+    foreground = '#A277FF'
+
+    template = '{{ if eq .Env.ZGIT "1" }} {{ .HEAD }}{{ if gt .Ahead 0 }} <blue>⇡{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }} <red>⇣{{ .Behind }}</>{{ end }}{{ if .Staging.Changed }} <green>±{{ add .Staging.Added .Staging.Modified .Staging.Deleted .Staging.Unmerged }}</>{{ end }}{{ if .Working.Changed }} <yellow>✗{{ end }}{{ end }}'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_status = true
+
+
+# ==============================================================================
+# RIGHT PROMPT
+# ==============================================================================
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  # ---------------------------------------------------------------------------
+  # PIXI
+  # Toggle: ZPY=1 / 0
+  #
+  # Pixi takes priority over Python.
+  # ---------------------------------------------------------------------------
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'green'
+    background = 'transparent'
+
+    template = '{{ if and (eq .Env.ZPY "1") (or .Env.PIXI_PROJECT_NAME .Env.PIXI_ENVIRONMENT_NAME) }}⚡ {{ .Env.PIXI_PROJECT_NAME }}:{{ .Env.PIXI_ENVIRONMENT_NAME }}{{ end }}'
+
+
+  # ---------------------------------------------------------------------------
+  # PYTHON / VENV
+  # Toggle: ZPY=1 / 0
+  #
+  # Hidden when Pixi is active.
+  # ---------------------------------------------------------------------------
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'green'
+    background = 'transparent'
+
+    template = '{{ if and (eq .Env.ZPY "1") (not (or .Env.PIXI_PROJECT_NAME .Env.PIXI_ENVIRONMENT_NAME)) }}🐍 {{ .Full }}{{ end }}'
+
+
+  # ---------------------------------------------------------------------------
+  # EXECUTION TIME
+  # Toggle: ZTIMER=1 / 0
+  # ---------------------------------------------------------------------------
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = 'yellow'
+    background = 'transparent'
+
+    template = '{{ if eq .Env.ZTIMER "1" }}{{ .FormattedMs }}{{ end }}'
+
+    [blocks.segments.properties]
+      threshold = 5000
+
+
+# ==============================================================================
+# SSH
+# Toggle: ZSSH=1 / 0
+# ==============================================================================
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = false
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = 'blue'
+    background = 'transparent'
+
+    template = '{{ if and (eq .Env.ZSSH "1") .SSHSession }}{{ .UserName }}@{{ .HostName }}{{ end }}'
+
+
+# ==============================================================================
+# FINAL PROMPT
+# Always enabled
+# ==============================================================================
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}green{{end}}",
+    ]
+    background = 'transparent'
+    template = '❯'
+
+
+# ==============================================================================
+# TRANSIENT PROMPT
+# ==============================================================================
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}green{{end}}",
+  ]
+  background = 'transparent'
+  template = '❯'
+
+  [[transient_prompt.segments]]
+    type = 'text'
+    background = 'transparent'
+    newline = true
+    template = ' '
+
+
+# ==============================================================================
+# SECONDARY PROMPT
+# ==============================================================================
+
+[secondary_prompt]
+  foreground = 'magenta'
+  background = 'transparent'
+  template = '❯❯ '
