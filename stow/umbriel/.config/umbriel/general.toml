@@ -1,0 +1,17 @@
+#:schema https://raw.githubusercontent.com/noctalia-dev/umbriel/main/schema.json
+[general]
+mod_key = "Super"
+xwayland = true
+show_cheatsheet = false
+
+autostart = [
+    "noctalia",
+    "udiskie",
+    "wl-clip-persist --clipboard both",
+    "wl-paste --type text --watch cliphist store",
+    "wl-paste --type image --watch cliphist store",
+    "solaar --window=hide",
+]
+
+[workspaces]
+back_and_forth = false

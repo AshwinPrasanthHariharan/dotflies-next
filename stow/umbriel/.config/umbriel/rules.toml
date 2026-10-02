@@ -1,0 +1,58 @@
+#:schema https://raw.githubusercontent.com/noctalia-dev/umbriel/main/schema.json
+
+[[window_rule]]
+blur = true
+blur_optimized = true
+opacity = 0.8
+
+[[window_rule]]
+match.app_id = "^org\\.pwmt\\.zathura$"
+opacity = 1
+
+[[window_rule]]
+match.title = ".*YouTube*"
+opacity = 1
+# Noctalia settings
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1020, height = 900 }
+
+# Noctalia share picker
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+# Float common browser Picture-in-Picture windows near the bottom-right corner.
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+# Keep Steam notification toasts in the bottom-right corner without stealing
+# focus, and pin them so workspace switches do not hide them.
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+[[window_rule]]
+match.app_id = "kitty"
+opacity = 1
+# MathWorks suite with no effects
+
+[[window_rule]]
+match.app_id = ".*(MATLAB|Simulink|MathWorks).*"
+default_scrolling_extent = 1.0
+
+opacity = 1.0
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+blur_optimized = false
+

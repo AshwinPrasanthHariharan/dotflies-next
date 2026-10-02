@@ -1,0 +1,53 @@
+
+
+[input]
+middle_click_paste = true                       # Primary-selection paste; applies on reload
+window_drag_toggle = "none"                     # none, floating, or pinned when pressing the other drag button
+
+[input.keyboard]
+# Physical keyboard XKB settings. Virtual keyboards provide their own keymaps.
+layout = ""                                     # Example: "us,de"; empty uses the system default
+variant = ""                                    # Example: ",nodeadkeys" for two layouts
+options = ""                                    # Example: "grp:alt_shift_toggle"
+repeat_rate = 25                                # Key repeats per second, 0-1000
+repeat_delay = 600                              # Delay before repeating, 0-10000 ms
+numlock_toggle = true                           # Enable on connect; false preserves the current state
+track_layout = "global"                         # global, or window to remember each window's keyboard layout
+
+[input.touchpad]
+tap = true                                      # Tap-to-click
+natural_scroll = true                         # Omit to preserve the libinput default
+# accel_profile = "adaptive"                    # flat, adaptive, or custom <step> <points...>
+sensitivity = 0.5                             # Pointer speed, -1.0 to 1.0
+# scroll_factor = 1.5                           # Two-finger scroll multiplier, 0.1-10.0
+# scroll_factor = {}   # or per axis instead of the line above, 0.1-10.0
+# disable_while_typing = true                   # Omit to preserve the libinput default
+# disable_on_external_mouse = true              # Native sessions only
+# click_method = "clickfinger"                  # button_areas or clickfinger; omit for the device default
+
+[input.mouse]
+# natural_scroll = false                        # Omit to preserve the libinput default
+# accel_profile = "flat"                        # Omit to preserve the libinput default
+sensitivity = 0.0                               # Pointer speed, -1.0 to 1.0
+scroll_wheel_step = 60                          # Logical pixels per layout-scroll action, 1-1000
+# scroll_button = "MouseBack"                   # Hold to scroll with pointer motion; omit to leave the device alone
+# scroll_button_lock = false                    # One press latches scrolling instead of holding
+
+[input.tablet]
+enabled = true                                  # False disables tablet tools and pads
+# map_to_output = "DP-1"                        # Connector or monitor Config name
+# map_to_focused_output = false
+# map_to_focused_window = false                 # Focused-window mapping has highest priority
+# left_handed = false
+# calibration_matrix = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+
+[input.cursor]
+theme = ""                                      # Empty uses environment or default Xcursor theme
+size = 24                                       # Logical size, 1-512
+hardware_cursor = true                          # False can fix cursor flicker or disappearance
+follows_focus = false                           # Move the cursor to windows focused by actions or activation
+hide_when_typing = false                        # Keep visible while typing
+hide_timeout_ms = 0                             # Idle hide timeout, 0 disables; maximum is 3600000
+
+[input.focus]
+follows_mouse = false                           # Focus under the pointer after pointer or layout changes

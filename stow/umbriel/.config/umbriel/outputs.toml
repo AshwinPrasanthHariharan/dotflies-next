@@ -1,0 +1,13 @@
+#:schema https://raw.githubusercontent.com/noctalia-dev/umbriel/main/schema.json
+[output.eDP-1]
+enabled = true
+position = [0, 0]
+scale = 1.2
+transform = "normal"
+vrr = "fullscreen"
+tearing = true
+direct_scanout = true
+hdr = "auto"
+sdr_white = 203
+min_workspaces = 3
+workspace_axis = "vertical"
