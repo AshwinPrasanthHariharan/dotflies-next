@@ -5,3 +5,8 @@ github = "zsh-users/zsh-autosuggestions"
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+
+# 3. Add fzf-tab
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+use = ["{{ name }}.plugin.zsh"]
