@@ -5,8 +5,6 @@
 alias src="source"
 alias cat="bat"
 alias wr="pkill waybar > /dev/null 2>&1 || true; waybar -c $HOME/dotfiles/waybar/config.jsonc -s $HOME/dotfiles/waybar/style.css > /dev/null 2>&1 & disown"
-alias zu="SSH_CONNECTION=\"1 2 3 4\""
-alias zuc="unset SSH_CONNECTION "
 alias zz="source ~/.zshrc && clear" 
 alias nglook="nwg-look"
 alias zcode='code $(zoxide query)'

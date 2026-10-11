@@ -107,7 +107,7 @@ warning_threshold = 20
 [brightness]
 enable_ddcutil = false
 ignore_mmids = []
-minimum_brightness = 0.0
+minimum_brightness = -1
 sync_all_monitors = false
 
 [calendar]
@@ -203,6 +203,7 @@ theme_mode_changed = []
 wallpaper_changed = []
 wifi_disabled = []
 wifi_enabled = []
+on_lock = ["noctalia msg media pause"]
 
 [hot_corners]
 delay_ms = 0
@@ -282,7 +283,6 @@ fingerprint = true
 lock_before_suspend = true
 monitors = []
 tint_intensity = 0.30000001192092896
-transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
 transition_duration = 1500.0
 wallpaper = ""
 

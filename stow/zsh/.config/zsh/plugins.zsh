@@ -1,6 +1,6 @@
-# ==============================================================================
+#=======================================
 # COMPLETION + PLUGINS
-# ==============================================================================
+#=======================================
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -11,9 +11,9 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#777777'  # Suggestion color set to #777777
 bindkey '^ ' autosuggest-accept              # Ctrl+Space to accept suggestion
 
-# ==============================================================================
+#=======================================
 # Syntax Highlighting configuration
-# ==============================================================================
+#=======================================
 ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
@@ -25,9 +25,9 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
 
 
-# ==============================================================================
+#=======================================
 # compint intialization
-# ==============================================================================
+#=======================================
 autoload -Uz compinit
 compinit
 

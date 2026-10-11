@@ -13,7 +13,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls",
                 "marksman" ,
-                "pyright",
+                "basedpyright",
                 "clangd",
                 "bashls",
                 "jsonls",
@@ -32,10 +32,21 @@ return {
                 settings = {},
             })
             vim.lsp.enable("marksman")
-            vim.lsp.config("pyright", {
-                settings = {},
-            })
-            vim.lsp.enable("pyright")
+            vim.lsp.config("basedpyright", {
+                settings = {
+                    basedpyright = {
+                    analysis = {
+                    typeCheckingMode = "basic",
+                    diagnosticMode = "openFilesOnly",
+                    diagnosticSeverityOverrides = {
+                    eportUnknownVariableType = "none",
+                    reportUnknownMemberType = "none",
+                    reportUnknownArgumentType = "none",
+                    reportUnknownParameterType = "none",
+                    reportUnknownLambdaType = "none",
+                    reportAny = "none",},},},},})
+
+          vim.lsp.enable("basedpyright")
             vim.lsp.config("clangd", {
                 settings = {},
             })

@@ -1,7 +1,7 @@
 
 -- ~/.config/nvim/lua/plugins/colors.lua
 local glass = {
-  base      = { color = "#1e1e2e", alpha = 0.9 },
+  base      = { color ="#1e1e2e", alpha = 0.9 },
 }
 return {
   -- 1. The Core Theme
@@ -41,8 +41,8 @@ return {
           return {
             -- Keeping your original color names intact
             LineNr = { fg = colors.lavender },
-            CursorLineNr = { fg = colors.yellow, bg = glass.base.color, style = { "bold" } },
-            CursorLine = { bg = glass.base.color },
+            CursorLineNr = { fg = colors.yellow, bg = "NONE", style = { "bold" }, blend=80},
+            CursorLine = {  bg="NONE"  },
 
             -- NeoTree colours
             NeoTreeRootName       = { fg = colors.mauve, style = { "bold" } },
@@ -77,6 +77,7 @@ return {
     },
     config = function()
       require("lualine").setup({
+        globalstatus=true,
         options = {
           component_separators = { left = "│", right = "│" },
           section_separators = { left = "", right = "" },

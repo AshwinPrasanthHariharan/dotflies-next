@@ -1,120 +1,85 @@
-# ==============================================================================
+#=======================================
 # PATHS
-# ==============================================================================
+#=======================================
 path+=(
     "$HOME/.pixi/bin"
     "/usr/bin"
     "/usr/local/bin"
     "$HOME/.cargo/bin"
 )
-# ==============================================================================
+
+#=======================================
 # FUNCTIONS
-# ==============================================================================
-mkcd() {
-  mkdir -p "$1" && cd "$1"
-}
+#=======================================
 
-kural() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: kural <number>"
-    return 1
-  fi
-
-  if command -v pixi >/dev/null 2>&1; then
-    if pixi run python "$HOME/dotfiles/thirukkural/kural_cli.py" "$@"; then
-      return 0
-    fi
-
-    echo "pixi run failed, using system python3..."
-  fi
-
-  python3 "$HOME/dotfiles/thirukkural/kural_cli.py" "$@"
-}
-#------------------------------------------------------------- 
-#pixi shell helpers
-#-------------------------------------------------------------
+# --------------------------------------
+# Pixi shell helpers
+# --------------------------------------
 pxa() {
-  export _OLD_PIXI_PATH="$PATH"
-  eval "$(pixi shell-hook)"
-  echo $XDG_DATA_DIRS
+    export _OLD_PIXI_PATH="$PATH"
+    eval "$(pixi shell-hook)"
+    echo "$XDG_DATA_DIRS"
 }
 
 pxd() {
-  # Backup original PATH if not already saved.
-  if [[ -n "$_OLD_PIXI_PATH" ]]; then
-    export PATH="$_OLD_PIXI_PATH"
-    unset _OLD_PIXI_PATH
-  else
-    PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '\.pixi' | paste -sd ':' -)
-  fi
+    if [[ -n "$_OLD_PIXI_PATH" ]]; then
+        export PATH="$_OLD_PIXI_PATH"
+        unset _OLD_PIXI_PATH
+    else
+        PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '\.pixi' | paste -sd ':' -)
+    fi
 
-  unset PIXI_ENVIRONMENT_NAME PIXI_PROJECT_NAME CONDA_PREFIX
-  hash -r
+    unset PIXI_ENVIRONMENT_NAME PIXI_PROJECT_NAME CONDA_PREFIX
+    hash -r
 }
-#-------------------------------------------------------------
-
-#-------------------------------------------------------------
-#prompt flag setters
-#-------------------------------------------------------------
-zdev() {
-  export ZGIT=1
-  export ZPY=1
-}
-
-zclean() {
-  unset ZGIT
-  unset ZPY
+# --------------------------------------
+# General utilities
+# --------------------------------------
+mkcd() {
+    mkdir -p "$1" && cd "$1"
 }
 
 mkagent() {
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519
+    eval "$(ssh-agent -s)"
+    ssh-add "$HOME/.ssh/id_ed25519"
 }
 
 git-to-ssh() {
     local git_bin
     local current_url
-  if ! command -v git >/dev/null 2>&1; then
-    echo "Error: git is not installed or not in PATH."
-    return 127
-  fi
+    local temp
+    local domain
+    local path
+    local new_url
 
-  git_bin=$(command -v git)
+    if ! command -v git >/dev/null 2>&1; then
+        echo "Error: git is not installed or not in PATH."
+        return 127
+    fi
 
-  if ! current_url=$("$git_bin" remote get-url origin 2>/dev/null); then
-    echo "Error: Not a git repository or no 'origin' remote found."
-    return 1
-  fi
+    git_bin=$(command -v git)
 
-    if [ -z "$current_url" ]; then
+    if ! current_url=$("$git_bin" remote get-url origin 2>/dev/null); then
         echo "Error: Not a git repository or no 'origin' remote found."
         return 1
     fi
 
-    # Check if it's already an SSH URL
     if [[ "$current_url" == git@* ]]; then
         echo "Remote 'origin' is already using SSH: $current_url"
         return 0
     fi
 
-    # Universal string manipulation (Works in Zsh and Bash)
     if [[ "$current_url" == https://* ]]; then
-        # Strip the 'https://' prefix
-        local temp="${current_url#https://}"
-        
-        # Grab everything before the first slash (github.com)
-        local domain="${temp%%/*}"
-        
-        # Grab everything after the first slash (User/Repo.git)
-        local path="${temp#*/}"
-        
-        local new_url="git@${domain}:${path}"
+        temp="${current_url#https://}"
+        domain="${temp%%/*}"
+        path="${temp#*/}"
+        new_url="git@${domain}:${path}"
 
-        # Apply the new URL
         if ! "$git_bin" remote set-url origin "$new_url"; then
-          echo "Error: Failed to update origin to SSH."
-          return 1
+            echo "Error: Failed to update origin to SSH."
+            return 1
         fi
+
         echo "Successfully swapped origin to SSH!"
         echo "Old: $current_url"
         echo "New: $new_url"
@@ -126,9 +91,11 @@ git-to-ssh() {
 
 ff() {
     local conf="$HOME/dotfiles/fastfetch/config-short.jsonc"
+    local args
 
-    local args=$(getopt -o ls -- "$@")
+    args=$(getopt -o ls -- "$@") || return 1
     eval set -- "$args"
+
     while true; do
         case "$1" in
             -l)
@@ -143,9 +110,31 @@ ff() {
                 shift
                 break
                 ;;
-      esac
+        esac
     done
-    
-    fastfetch --config "$conf" "$@" --logo "$HOME/dotfiles/assets/logo/orbit.png" 
+
+    fastfetch --config "$conf" "$@" \
+        --logo "$HOME/dotfiles/assets/logo/orbit.png"
+}
+
+
+# --------------------------------------
+# Prompt flag setters
+# --------------------------------------
+zu() {
+    export ZSSH=1
+}
+
+zuc() {
+    unset ZSSH
+}
+
+zdev() {
+    export ZPY=1
+    export ZGIT=1
+}
+
+zclean() {
+    unset ZPY ZGIT
 }
 

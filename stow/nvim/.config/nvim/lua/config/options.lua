@@ -22,3 +22,4 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.breakat = " \t"
+vim.opt.laststatus = 3

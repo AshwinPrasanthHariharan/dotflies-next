@@ -35,3 +35,4 @@ map.set("n", "<leader>ud", "<cmd>NoiceDismiss<CR>", {
 map.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 map.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

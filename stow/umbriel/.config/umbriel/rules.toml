@@ -42,18 +42,30 @@ default_pinned = true
 [[window_rule]]
 match.app_id = "kitty"
 opacity = 1
-# MathWorks suite with no effects
 
+[[window_rule]]
+match.app_id = "wezterm"
+opacity = 1
+
+# In your ~/.config/umbriel/config.toml (or active config path)
+
+# MathWorks suite with no effects
 [[window_rule]]
 match.app_id = ".*(MATLAB|Simulink|MathWorks).*"
 default_scrolling_extent = 1.0
 opacity = 1.0
 
+<<<<<<< HEAD
 
 [[window_rule]]
 match.app_id = "^ONLYOFFICE$"
 opacity = 1.0
 default_scrolling_extent = 1.0
+=======
+[[window_rule]]
+match.app_id = ".*(Code).*"
+opacity = 1.0
+>>>>>>> 50927f4 (added wezterm)
 
 [[layer_rule]]
 match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
