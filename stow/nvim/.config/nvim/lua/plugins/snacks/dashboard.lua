@@ -47,15 +47,6 @@ return {
               end,
             },
 
-            {
-              icon = " ",
-              key = "d",
-              desc = "Dotfiles",
-              action = function()
-                vim.cmd.cd(vim.fn.expand("~/dotfiles"))
-                Snacks.picker.files()
-              end,
-            },
 
             {
               icon = " ",
@@ -87,7 +78,7 @@ return {
           -- Header
           {
             section = "header",
-            align = "center",
+            align = "left",
             padding = 1,
           },
 
@@ -112,7 +103,7 @@ return {
 
           -- Projects
           {
-            pane = 2,
+            pane = 1,
             icon = " ",
             title = "Projects",
             section = "projects",
@@ -120,20 +111,6 @@ return {
             padding = 1,
           },
 
-          -- Dotfiles
-          {
-            pane = 2,
-            icon = " ",
-            title = "Dotfiles",
-            text = {
-              {
-                "~/dotfiles",
-                hl = "directory",
-              },
-            },
-            indent = 2,
-            padding = 1,
-          },
 
           -- Recent Files
           {
@@ -141,13 +118,12 @@ return {
             icon = " ",
             title = "Recent Files",
             section = "recent_files",
-            indent = 2,
-            padding = 1,
+            indent = 4,
           },
 
           -- Startup
           {
-            pane = 2,
+            pane = 1,
             section = "startup",
           },
         },
