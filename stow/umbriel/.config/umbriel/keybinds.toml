@@ -143,15 +143,16 @@
 #=================================
 # MEDIA / AUDIO
 #=================================
+# Volume controls using WirePlumber (PipeWire)
+"XF86AudioRaiseVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+"XF86AudioLowerVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+"XF86AudioMute"        = "spawn:wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+"XF86AudioMicMute" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-"xf86audioraisevolume" = "spawn:wpctl set-volume @default_audio_sink@ 5%+"
-"xf86audiolowervolume" = "spawn:wpctl set-volume @default_audio_sink@ 5%-"
-"xf86audiomute"        = "spawn:wpctl set-mute @default_audio_sink@ toggle"
-
-"xf86audioplay" = "spawn:playerctl play-pause"
-"xf86audionext" = "spawn:playerctl next"
-"xf86audioprev" = "spawn:playerctl previous"
-
+# Media controls using playerctl
+"XF86AudioPlay"        = "spawn:playerctl play-pause"
+"XF86AudioNext"        = "spawn:playerctl next"
+"XF86AudioPrev"        = "spawn:playerctl previous"
 
 #=================================
 # BRIGHTNESS

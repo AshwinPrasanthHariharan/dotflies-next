@@ -34,13 +34,11 @@ config.window_content_alignment = {
   horizontal = "Center",
   vertical = "Center",
 }
-
 config.enable_wayland = false
 
 
 config.use_fancy_tab_bar = false
 
 config.default_prog = { 'zsh', '-l' }
-
 config.color_scheme = "Noctalia"
 return config

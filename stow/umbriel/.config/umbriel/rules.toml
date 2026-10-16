@@ -5,13 +5,6 @@ blur = true
 blur_optimized = true
 opacity = 0.8
 
-[[window_rule]]
-match.app_id = "^org\\.pwmt\\.zathura$"
-opacity = 1
-
-[[window_rule]]
-match.title = ".*YouTube*"
-opacity = 1
 # Noctalia settings
 [[window_rule]]
 match.app_id = "^dev.noctalia.Noctalia$"
@@ -39,31 +32,32 @@ default_position = { x = 0, y = 0, anchor = "bottom_right" }
 default_focused = false
 default_pinned = true
 
+#no compasitor opacity
 [[window_rule]]
-match.app_id = "kitty"
+match.app_id="firefox"
+match.title=[
+    ".*YouTube*"
+]
+opacity =1
+
+[[window_rule]]
+match.app_id = [
+    ".*(kitty|wezterm).*",
+    "^org\\.pwmt\\.zathura$",
+    "kicad"
+]
 opacity = 1
 
+# with no effects  
 [[window_rule]]
-match.app_id = "wezterm"
-opacity = 1
+match.app_id =[
+    ".*(MATLAB|Simulink|MathWorks|Code).*",
+    "^ONLYOFFICE$"
 
-# In your ~/.config/umbriel/config.toml (or active config path)
-
-# MathWorks suite with no effects
-[[window_rule]]
-match.app_id = ".*(MATLAB|Simulink|MathWorks).*"
+]
 default_scrolling_extent = 1.0
 opacity = 1.0
-
-
-[[window_rule]]
-match.app_id = "^ONLYOFFICE$"
-opacity = 1.0
-default_scrolling_extent = 1.0
-
-[[window_rule]]
-match.app_id = ".*(Code).*"
-opacity = 1.0
+blur = false 
 
 [[layer_rule]]
 match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
