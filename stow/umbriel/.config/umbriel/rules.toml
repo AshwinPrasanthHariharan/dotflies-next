@@ -3,7 +3,7 @@
 [[window_rule]]
 blur = true
 blur_optimized = true
-opacity = 0.8
+opacity = 0.85
 
 # Noctalia settings
 [[window_rule]]
@@ -36,7 +36,7 @@ default_pinned = true
 [[window_rule]]
 match.app_id="firefox"
 match.title=[
-    ".*YouTube*"
+    ".*(- YouTube|^YouTube).*"
 ]
 opacity =1
 
@@ -44,7 +44,8 @@ opacity =1
 match.app_id = [
     ".*(kitty|wezterm).*",
     "^org\\.pwmt\\.zathura$",
-    "kicad"
+    "kicad",
+    "zen"
 ]
 opacity = 1
 

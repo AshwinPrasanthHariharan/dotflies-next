@@ -1,14 +1,13 @@
 #=======================================
 # PLUGIN MANAGER
 #=======================================
-
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" 
 if command -v sheldon >/dev/null 2>&1; then
     eval "$(sheldon source)"
 fi
 
 eval "$(zoxide init zsh --cmd cd)"
  
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" 
 
 if [[ ":$FPATH:" != *":/home/ashwin/.zsh/completions:"* ]];
    then export FPATH="/home/ashwin/.zsh/completions:$FPATH";

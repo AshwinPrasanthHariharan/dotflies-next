@@ -15,10 +15,10 @@ enable_cursor_positioning = true
   alignment = 'left'
   newline = true
 
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
   # PATH
   # Always enabled
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
 
   [[blocks.segments]]
     type = 'path'
@@ -31,10 +31,10 @@ enable_cursor_positioning = true
       style = 'full'
 
 
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
   # GIT
   # Toggle: ZGIT=1 / 0
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
 
   [[blocks.segments]]
     type = 'git'
@@ -57,12 +57,12 @@ enable_cursor_positioning = true
   type = 'rprompt'
   overflow = 'hidden'
 
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
   # PIXI
   # Toggle: ZPY=1 / 0
   #
   # Pixi takes priority over Python.
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
 
   [[blocks.segments]]
     type = 'text'
@@ -73,12 +73,12 @@ enable_cursor_positioning = true
     template = '{{ if and (eq .Env.ZPY "1") (or .Env.PIXI_PROJECT_NAME .Env.PIXI_ENVIRONMENT_NAME) }}⚡ {{ .Env.PIXI_PROJECT_NAME }}:{{ .Env.PIXI_ENVIRONMENT_NAME }}{{ end }}'
 
 
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
   # PYTHON / VENV
   # Toggle: ZPY=1 / 0
   #
   # Hidden when Pixi is active.
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
 
   [[blocks.segments]]
     type = 'python'
@@ -89,10 +89,10 @@ enable_cursor_positioning = true
     template = '{{ if and (eq .Env.ZPY "1") (not (or .Env.PIXI_PROJECT_NAME .Env.PIXI_ENVIRONMENT_NAME)) }}🐍 {{ .Full }}{{ end }}'
 
 
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
   # EXECUTION TIME
   # Toggle: ZTIMER=1 / 0
-  # ---------------------------------------------------------------------------
+  # ----------------------------------
 
   [[blocks.segments]]
     type = 'executiontime'
@@ -156,6 +156,7 @@ enable_cursor_positioning = true
     "{{if eq .Code 0}}green{{end}}",
   ]
   background = 'transparent'
+
   template = '❯'
 
   [[transient_prompt.segments]]

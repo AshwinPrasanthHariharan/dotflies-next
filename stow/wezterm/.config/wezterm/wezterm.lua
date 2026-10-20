@@ -36,7 +36,6 @@ config.window_content_alignment = {
 }
 config.enable_wayland = false
 
-
 config.use_fancy_tab_bar = false
 
 config.default_prog = { 'zsh', '-l' }
