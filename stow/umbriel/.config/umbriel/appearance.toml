@@ -8,7 +8,7 @@ drag_opacity = 0.75                             # Window opacity during a tiled 
 
 [appearance.blur]
 enabled = true
-optimized = true
+optimized = false
 
 passes = 4
 radius = 5
@@ -23,3 +23,8 @@ softness = 10                                   # Gaussian softness, 0-200; 0 is
 offset_x = 2                                    # Horizontal offset, -200 to 200
 offset_y = 2                                    # Vertical offset, -200 to 200
 
+[appearance.title_bar]
+mode = "off"
+height = 28
+button_position = "right"
+buttons = ["minimize", "maximize", "close"]

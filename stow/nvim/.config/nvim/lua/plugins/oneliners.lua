@@ -33,4 +33,10 @@ return{
     search = {}   -- custom search definitions
   },
 },
+{
+  "https://codeberg.org/grafcube/suedit.nvim",
+  dependencies = "akinsho/toggleterm.nvim",
+  opts = { cmd = "doas" }
+  -- eg: { cmd = "run0" }
+},
 }

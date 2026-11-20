@@ -4,7 +4,7 @@ scroll_factor_horizontal = 1.0                  # Overview gesture/wheel multipl
 scroll_factor_vertical = 1.0                    # Overview gesture/wheel multiplier, up and down, 0.1-10.0
 # Pinned windows stay hidden until overview closes; visible scratchpads are dismissed.
 # background_blur = true                        # Blur the wallpaper behind overview rows
-workspace_wallpaper = false                    # Mirror wallpapers inside workspace previews
+workspace_wallpaper = true                    # Mirror wallpapers inside workspace previews
 shortcuts = true                              # Show keyboard shortcut badges on windows
 # shortcut_keys = "1234567890"                  # Badge keys in preference order
 
@@ -26,5 +26,5 @@ action = "overview-toggle"
 [hot_corners.bottom_right]
 enabled = false
 delay_ms = 500
-action = "spawn:notify-send 'Bottom right'"
+action = "spawn notify-send 'Bottom right'"
 

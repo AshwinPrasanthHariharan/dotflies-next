@@ -10,11 +10,6 @@ map.set("n", "<leader>rn", ":set relativenumber!<CR>", {
   desc = "Toggle relative line numbers",
 })
 
--- Map Alt+Space to Escape in Insert mode
-map.set("i", "<A-Space>", "<Esc>", {
-  desc = "Escape with Alt+Space",
-})
-
 -- Neo-tree toggle
 map.set(
   "n",

@@ -19,12 +19,14 @@ fi
 #=======================================
 eval "$(zoxide init zsh)"
 setopt interactivecomments
+config="$HOME/.config/zsh/"
 src=(
-  "$HOME/.config/zsh/alias.sh"
-  "$HOME/.config/zsh/func.sh"
-  # "$HOME/.config/zsh/prompt.zsh"
-  "$HOME/.config/zsh/matlab.sh"
-  "$HOME/.config/zsh/plugins.zsh"
+  "$config/alias.sh"
+  "$config/func.sh"
+  # "$config/prompt.zsh"
+  "$config/matlab.sh"
+  "$config/plugins.zsh"
+  "$config/History.zsh"
 )
 
 src_if_exists() {
@@ -58,7 +60,6 @@ path+=(
     "/usr/bin"
 )
 source /usr/share/nvm/init-nvm.sh
-
 
 
 

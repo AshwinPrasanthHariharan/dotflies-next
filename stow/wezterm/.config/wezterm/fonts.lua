@@ -24,7 +24,7 @@ end
 local M = {}
 
 -- Define your global font size here
-M.size = 14.0
+M.size = 13.7
 
 -- Main font configuration
 M.default = make_font({ weight = 'Regular', italic = false })

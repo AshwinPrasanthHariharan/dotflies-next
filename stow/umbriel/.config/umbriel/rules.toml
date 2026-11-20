@@ -34,7 +34,7 @@ default_pinned = true
 
 #no compasitor opacity
 [[window_rule]]
-match.app_id="firefox"
+match.app_id=".*(waterfox|firefox).*"
 match.title=[
     ".*(- YouTube|^YouTube).*"
 ]
@@ -42,10 +42,9 @@ opacity =1
 
 [[window_rule]]
 match.app_id = [
-    ".*(kitty|wezterm).*",
+    ".*(kitty|wezterm|ghostty).*",
     "^org\\.pwmt\\.zathura$",
     "kicad",
-    "zen"
 ]
 opacity = 1
 
@@ -53,17 +52,19 @@ opacity = 1
 [[window_rule]]
 match.app_id =[
     ".*(MATLAB|Simulink|MathWorks|Code).*",
-    "^ONLYOFFICE$"
+    "^ONLYOFFICE$",
+    "virtuoso"
 
 ]
 default_scrolling_extent = 1.0
 opacity = 1.0
 blur = false 
+shadow=false
 
 [[layer_rule]]
 match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
-blur = true
-blur_ignore_alpha = 0.5
+blur = true  
+blur_ignore_alpha = 0.5  
 blur_popups = true
-blur_optimized = false
+blur_optimized = false 
 

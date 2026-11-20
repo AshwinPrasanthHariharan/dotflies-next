@@ -24,18 +24,20 @@ config.tab_bar_at_bottom = false -- Tab bar on top like Konsole
 config.hide_tab_bar_if_only_one_tab = true
 
 -- Paddings and Alingment
+local x=10
+local y=5
 config.window_padding = {
-  left = 2 ,
-  right = 2,
-  top = 10,
-  bottom = 10,
+  left = x/2 ,
+  right = x/2,
+  top = y/2,
+  bottom = y/2,
 }
 config.window_content_alignment = {
   horizontal = "Center",
   vertical = "Center",
 }
 config.enable_wayland = false
-
+config.window_close_confirmation = "NeverPrompt"
 config.use_fancy_tab_bar = false
 
 config.default_prog = { 'zsh', '-l' }
