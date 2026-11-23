@@ -42,4 +42,15 @@ config.use_fancy_tab_bar = false
 
 config.default_prog = { 'zsh', '-l' }
 config.color_scheme = "Noctalia"
+-- 1. Boost text weight and contrast to match Ghostty
+config.freetype_load_target = "HorizontalLcd"
+config.freetype_render_target = "HorizontalLcd"
+config.foreground_text_hsb = {
+  hue = 1.0,
+  saturation = 1.05,
+  brightness = 1.15, -- Makes white text pop like Ghostty
+}
+
+-- 2. Keep dark backgrounds rich even with transparency
+config.text_background_opacity = 1.0
 return config

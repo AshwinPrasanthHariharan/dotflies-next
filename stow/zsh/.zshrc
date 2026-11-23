@@ -2,6 +2,9 @@
 # PLUGIN MANAGER
 #=======================================
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" 
+
+# Generate cache if missing (or after updating oh-my-posh / your theme)
+
 if command -v sheldon >/dev/null 2>&1; then
     eval "$(sheldon source)"
 fi

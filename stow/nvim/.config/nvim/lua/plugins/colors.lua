@@ -1,8 +1,5 @@
 
 -- ~/.config/nvim/lua/plugins/colors.lua
-local glass = {
-  base      = { color ="#1e1e2e", alpha = 0.9 },
-}
 return {
   -- 1. The Core Theme
   {
@@ -91,9 +88,11 @@ return {
                 return reg ~= "" and ("recording @" .. reg) or ""
               end,
             },
+          },
+          lualine_y ={
             "fileformat",
             "filetype",
-          },
+        }
         },
       })
     end,
