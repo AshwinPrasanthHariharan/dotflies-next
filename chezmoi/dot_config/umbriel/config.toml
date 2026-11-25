@@ -1,0 +1,6 @@
+[include]
+files = ["keybinds.toml","general.toml" , "outputs.toml", "animations.toml","rules.toml","appearance.toml", "layouts.toml","inputs.toml","over_hot.toml"]
+[include.optional]
+files = ["noctalia.toml"]    
+# example: ["~/.config/umbriel/noctalia.toml"]
+

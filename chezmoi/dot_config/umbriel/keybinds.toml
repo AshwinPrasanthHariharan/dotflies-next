@@ -1,0 +1,206 @@
+[keybinds]
+
+#=================================
+# LAUNCHERS & APPLICATIONS
+#=================================
+
+"mod+return" = "spawn wezterm"
+"mod+Space" = "spawn noctalia msg panel-toggle launcher"
+
+
+#=================================
+# WINDOW FOCUS / NAVIGATION
+#=================================
+
+# Directional focus
+"mod+left"  = "window-focus-left"
+"mod+down"  = "window-focus-down"
+"mod+up"    = "window-focus-up"
+"mod+right" = "window-focus-right"
+
+# Vim-style focus
+"mod+h" = "window-focus-left"
+"mod+j" = "window-focus-down"
+"mod+k" = "window-focus-up"
+"mod+l" = "window-focus-right"
+
+# Cycle windows
+"mod+f1" = "window-focus-next"
+
+# Mouse wheel focus
+"mod+wheelup"   = "window-focus-left"
+"mod+wheeldown" = "window-focus-right"
+
+
+#=================================
+# WINDOW MOVEMENT / CONSUME
+#=================================
+
+# Move window vertically
+"mod+shift+down" = "window-move-down"
+"mod+shift+up"   = "window-move-up"
+
+# Consume / expel horizontally
+"mod+shift+left"  = "window-consume-or-expel-left"
+"mod+shift+right" = "window-consume-or-expel-right"
+
+# Vim-style equivalents
+"mod+shift+j" = "window-move-down"
+"mod+shift+k" = "window-move-up"
+"mod+shift+h" = "window-consume-or-expel-left"
+"mod+shift+l" = "window-consume-or-expel-right"
+
+# Explicit consume
+"mod+comma"  = "window-consume-left"
+"mod+period" = "window-consume-right"
+
+
+#=================================
+# COLUMNS
+#=================================
+
+# Move between columns
+"alt+left"  = "column-move-left"
+"alt+right" = "column-move-right"
+
+# Vim-style
+"alt+h" = "column-move-left"
+"alt+l" = "column-move-right"
+
+#=================================
+# WINDOW STATE
+#=================================
+
+# Floating
+"mod+v"       = "window-toggle-floating"
+"mod+shift+v" = "window-focus-switch-floating"
+
+# Pin
+"mod+p" = "window-toggle-pinned"
+
+# Maximize
+"mod+m" = "window-toggle-maximize-to-edges"
+
+# Fullscreen
+"mod+shift+f" = "window-toggle-fullscreen"
+
+"Mod+N" = "window-minimize"
+#=================================
+# LAYOUT / EXTENT
+#=================================
+
+# Center focused column in Scrolling layout
+"mod+c" = "column-center"
+
+# Cycle primary window extent
+"mod+r"       = "window-cycle-primary-extent"
+"mod+shift+r" = "window-cycle-primary-extent-back"
+
+# Overview
+"mod+o" = { action = "overview-toggle", repeat = false }
+
+"mod+f" = 'window-toggle-maximize'
+#=================================
+# WORKSPACES
+#=================================
+"alt+shift+n" = 'column-move-to-workspace-next'
+"alt+n"       = 'workspace-next'
+"alt+p"       = "workspace-previous"
+"alt+shift+p" = "column-move-to-workspace-previous"
+
+"mod+MouseBack" ="workspace-next"
+"mod+MouseForward" = "workspace-previous"
+# Switch workspace
+"alt+1" = "workspace-switch 1"
+"alt+2" = "workspace-switch 2"
+"alt+3" = "workspace-switch 3"
+"alt+4" = "workspace-switch 4"
+"alt+5" = "workspace-switch 5"
+"alt+6" = "workspace-switch 6"
+"alt+7" = "workspace-switch 7"
+"alt+8" = "workspace-switch 8"
+"alt+9" = "workspace-switch 9"
+
+# Move window to workspace
+"alt+shift+1" = "window-move-to-workspace 1"
+"alt+shift+2" = "window-move-to-workspace 2"
+"alt+shift+3" = "window-move-to-workspace 3"
+"alt+shift+4" = "window-move-to-workspace 4"
+"alt+shift+5" = "window-move-to-workspace 5"
+"alt+shift+6" = "window-move-to-workspace 6"
+"alt+shift+7" = "window-move-to-workspace 7"
+"alt+shift+8" = "window-move-to-workspace 8"
+"alt+shift+9" = "window-move-to-workspace 9"
+
+
+#=================================
+# SCRATCHPAD
+#=================================
+
+"alt+s" = "window-move-to-scratchpad def"
+"mod+s" = "scratchpad-toggle def"
+#=================================
+# MEDIA / AUDIO
+#=================================
+# Volume controls using WirePlumber (PipeWire)
+"XF86AudioRaiseVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+"XF86AudioLowerVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+"XF86AudioMute"        = "spawn wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+"XF86AudioMicMute" = "spawn wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+# Media controls using playerctl
+"XF86AudioPlay"        = "spawn playerctl play-pause"
+"XF86AudioNext"        = "spawn playerctl next"
+"XF86AudioPrev"        = "spawn playerctl previous"
+
+#=================================
+# BRIGHTNESS
+#=================================
+
+"xf86monbrightnessdown" = { action = "spawn noctalia msg brightness-down 10", allow_when_locked = true }
+"xf86monbrightnessup"   = { action = "spawn noctalia msg brightness-up 10", allow_when_locked = true }
+
+#=================================
+# SCREENSHOTS
+#=================================
+
+# Region screenshot
+"Print" = "spawn noctalia msg screenshot-region"
+
+# Fullscreen screenshot
+"Shift+Print" = "spawn noctalia msg screenshot-fullscreen"
+
+"alt+Print" = "spawn noctalia msg plugin fel/ocr:ocr all ocr-region"
+#=================================
+# WALLPAPER
+#=================================
+
+
+# Replace "Mod+Shift+W" with whatever key combination you want
+"alt+W" = "spawn noctalia msg plugin yngwe/wallpaperCarousel:service all toggle"
+
+#=================================
+# SESSION / SECURITY
+#=================================
+
+# Close window
+"mod+q" = "window-close"
+"Alt+mod+Tab" = "spawn noctalia msg window-switcher hold"
+"Alt+Shift+Tab" = "spawn noctalia msg window-switcher hold reverse"
+# Lock
+"Mod+b" = { action = "spawn noctalia msg session lock" }
+
+# Quit Umbriel
+"mod+escape" = "session-quit"
+
+# Toggle shortcut inhibition
+"mod+shift+escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+# 1. Press Mod + U to enter the layout submap mode
+"Mod+tab" = { action = "submap layout", repeat = false }
+
+# 2. Define actions inside the layout submap
+"submap[layout],d" = { action = "workspace-set-layout dwindle", submap = "reset" }
+"submap[layout],s" = { action = "workspace-set-layout scrolling", submap = "reset" }
+"submap[layout],f" = { action = "workspace-set-layout stacking", submap = "reset" }
+# 3. Exit the submap early without changes using Escape
+"submap[layout],Escape" = "submap reset"

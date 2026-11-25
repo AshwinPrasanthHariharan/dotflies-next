@@ -1,0 +1,62 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps lalt spc
+  a s d f j k l ;
+)
+
+(defvar
+  tap-time 100
+  hold-time 150
+)
+
+(defalias
+  ;; Type clear + Enter, temporarily releasing held modifiers
+  clear-terminal (macro
+    (unmod c)
+    (unmod l)
+    (unmod e)
+    (unmod a)
+    (unmod r)
+    (unmod ret)
+  )
+
+  ;; Caps: Escape on tap, Ctrl layer on hold
+  escctrl (tap-hold 100 100 esc
+    (multi lctl (layer-while-held ctrl))
+  )
+
+  ;; Left Alt: Alt layer on hold
+  alt (multi lalt (layer-while-held alt_layer))
+
+  ;; Home-row modifiers
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s
+    (multi lalt (layer-while-held alt_layer))
+  )
+  d (tap-hold $tap-time $hold-time d lsft)
+  f (tap-hold $tap-time $hold-time f
+    (multi lctl (layer-while-held ctrl))
+  )
+  j (tap-hold $tap-time $hold-time j rctl)
+  k (tap-hold $tap-time $hold-time k rsft)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+)
+
+(deflayer base
+  @escctrl @alt spc
+  @a @s @d @f @j @k @l @;
+)
+
+(deflayer alt_layer
+  _ _ esc
+  @a @s @d @f @j @k @l @;
+)
+
+(deflayer ctrl
+  _ _ _
+  @a @s @d @f @j @k @l @clear-terminal
+)
