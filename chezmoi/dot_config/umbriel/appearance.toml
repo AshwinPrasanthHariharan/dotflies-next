@@ -25,6 +25,6 @@ offset_y = 2                                    # Vertical offset, -200 to 200
 
 [appearance.title_bar]
 mode = "off"
-height = 28
+height = 30
 button_position = "right"
 buttons = ["minimize", "maximize", "close"]

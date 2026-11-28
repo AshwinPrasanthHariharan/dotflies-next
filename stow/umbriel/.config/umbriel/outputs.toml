@@ -1,8 +1,0 @@
-#:schema https://raw.githubusercontent.com/noctalia-dev/umbriel/main/schema.json
-[output.eDP-1]
-enabled = true
-position = [0, 0]
-scale = 1.2
-direct_scanout = true
-min_workspaces = 3
-workspace_axis = "vertical"

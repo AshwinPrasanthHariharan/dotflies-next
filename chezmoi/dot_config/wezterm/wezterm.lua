@@ -36,7 +36,7 @@ config.window_content_alignment = {
   horizontal = "Center",
   vertical = "Center",
 }
-config.enable_wayland = false
+config.enable_wayland = true
 config.window_close_confirmation = "NeverPrompt"
 config.use_fancy_tab_bar = false
 

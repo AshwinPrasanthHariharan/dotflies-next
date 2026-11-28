@@ -4,7 +4,7 @@
 # LAUNCHERS & APPLICATIONS
 #=================================
 
-"mod+return" = "spawn wezterm"
+"mod+return" = "spawn paw"
 "mod+Space" = "spawn noctalia msg panel-toggle launcher"
 
 

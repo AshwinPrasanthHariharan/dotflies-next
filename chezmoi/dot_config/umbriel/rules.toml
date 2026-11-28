@@ -34,7 +34,7 @@ default_pinned = true
 
 #no compasitor opacity
 [[window_rule]]
-match.app_id=".*(waterfox|firefox).*"
+match.app_id=".*(librewolf|firefox).*"
 match.title=[
     ".*(- YouTube|^YouTube).*"
 ]
@@ -42,7 +42,7 @@ opacity =1
 
 [[window_rule]]
 match.app_id = [
-    ".*(kitty|wezterm|ghostty).*",
+    ".*(kitty|wezterm|ghostty|paw).*",
     "^org\\.pwmt\\.zathura$",
     "kicad",
 ]
